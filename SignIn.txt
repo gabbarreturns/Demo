@@ -1,0 +1,37 @@
+package Auto;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class auto {
+
+public static void main(String[] args) {
+
+System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
+WebDriver driver=new ChromeDriver();
+driver.manage().window().maximize();
+driver.get("https://jt-dev.azurewebsites.net/#/SignUp");
+driver.findElement(By.xpath("//*[@id=\"language\"]/div[1]/span/span[2]")).click();
+WebElement Englsh= driver.findElement(By.xpath("//*[@id=\"language\"]/div[1]/span/span[2]/span"));
+String Eng=Englsh.getText();
+String Actaulop1="English";
+Assert.assertEquals(Eng,Actaulop1);
+WebElement Dutch= driver.findElement(By.xpath("//*[@id=\"ui-select-choices-row-1-1\"]/a/div"));
+String Dut=Dutch.getText();
+String Actaulop2="Dutch";
+Assert.assertEquals(Eng,Actaulop2);
+driver.findElement(By.xpath("//*[@id=\"name\"]")).sendKeys("XYZ");
+driver.findElement(By.xpath("//*[@id=\"orgName\"]")).sendKeys("XYZ ORG");
+driver.findElement(By.xpath("//*[@id=\"singUpEmail\"]")).sendKeys("XYZ ORG");
+driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[3]/div/section/div[1]/form/fieldset/div[4]/label/span")).click();
+//*[@id="content"]/div/div[3]/div/section/div[1]/form/fieldset/div[4]/label/span
+driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[3]/div/section/div[1]/form/fieldset/div[5]")).click();
+
+
+
+}
+
+}
